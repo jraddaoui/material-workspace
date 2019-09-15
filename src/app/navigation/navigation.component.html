@@ -1,0 +1,23 @@
+<mat-nav-list>
+  <div class="navigation-item" *ngFor="let item of navigation">
+    <a *ngIf="item.route" mat-list-item [routerLink]="item.route"
+       (click)="mobileQuery.matches ? snav.toggle() : ''">
+      <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+      {{ item.label }}
+    </a>
+    <mat-list-item *ngIf="item.children">
+      <mat-expansion-panel class="mat-elevation-z0">
+        <mat-expansion-panel-header collapsedHeight="40px" expandedHeight="40px">
+          <mat-panel-title>
+            <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+            {{ item.label }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a *ngFor="let child of item.children" mat-list-item [routerLink]="child.route"
+           (click)="mobileQuery.matches ? snav.toggle() : ''">
+          <span>{{ child.label }}</span>
+        </a>
+      </mat-expansion-panel>
+    </mat-list-item>
+  </div>
+</mat-nav-list>
