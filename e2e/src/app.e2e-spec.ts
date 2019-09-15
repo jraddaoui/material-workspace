@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display toolbar with primary color', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('material-workspace app is running!');
+    expect(page.getToolbarColor()).toEqual('primary');
   });
 
   afterEach(async () => {
