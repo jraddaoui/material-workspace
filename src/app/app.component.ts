@@ -7,7 +7,7 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  private _mobileQueryListener: () => void;
+  private mobileQueryListener: () => void;
   mobileQuery: MediaQueryList;
 
   constructor(
@@ -16,12 +16,12 @@ export class AppComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this._mobileQueryListener = () => this.changeDetectorRef.detectChanges();
+    this.mobileQueryListener = () => this.changeDetectorRef.detectChanges();
     this.mobileQuery = this.media.matchMedia('(max-width: 992px)');
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQuery.addListener(this.mobileQueryListener);
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 }
