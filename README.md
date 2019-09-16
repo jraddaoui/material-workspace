@@ -1,5 +1,7 @@
 # MaterialWorkspace
 
+[![CircleCI](https://img.shields.io/circleci/build/github/jraddaoui/material-workspace.svg?label=circleci)](https://circleci.com/gh/jraddaoui/material-workspace) [![Dependency Status](https://david-dm.org/jraddaoui/material-workspace.svg)](https://david-dm.org/jraddaoui/material-workspace) [![devDependency Status](https://david-dm.org/jraddaoui/material-workspace/dev-status.svg)](https://david-dm.org/jraddaoui/material-workspace?type=dev)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Development server
