@@ -1,18 +1,18 @@
 <mat-sidenav-container>
   <mat-sidenav #snav role="navigation" class="mat-elevation-z6"
-               [mode]="!desktopQuery.matches ? 'over' : 'side'"
-               [opened]="desktopQuery.matches"
+               [mode]="!isDesktop ? 'over' : 'side'"
+               [opened]="isDesktop"
                fixedInViewport>
     <img alt="Angular logo" src="assets/logo-black.svg">
-    <app-navigation (linkClicked)="!desktopQuery.matches ? snav.close() : ''"></app-navigation>
+    <app-navigation (linkClicked)="!isDesktop ? snav.close() : ''"></app-navigation>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="mat-elevation-z6">
-      <button mat-icon-button (click)="snav.toggle()" [hidden]="desktopQuery.matches">
+      <button mat-icon-button (click)="snav.toggle()" [hidden]="isDesktop">
         <mat-icon>menu</mat-icon>
       </button>
-      <img alt="Angular logo" src="assets/logo-white.svg" *ngIf="!desktopQuery.matches">
+      <img alt="Angular logo" src="assets/logo-white.svg" *ngIf="!isDesktop">
     </mat-toolbar>
     <div class="content" role="main">
       <router-outlet></router-outlet>

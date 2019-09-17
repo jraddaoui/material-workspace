@@ -41,10 +41,4 @@ describe('AppComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  // If this spec is executed last one, the Jasmine browser
-  // doesn't remove the component and ngOnDestroy is not called.
-  afterEach(() => {
-    fixture.destroy();
-  });
 });
