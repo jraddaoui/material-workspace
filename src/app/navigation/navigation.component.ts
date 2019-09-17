@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { NAVIGATION } from './navigation.example';
 
 @Component({
@@ -8,5 +8,6 @@ import { NAVIGATION } from './navigation.example';
   encapsulation: ViewEncapsulation.None,
 })
 export class NavigationComponent {
+  @Output() linkClicked: EventEmitter<void> = new EventEmitter<void>();
   readonly navigation: object[] = NAVIGATION;
 }

@@ -1,7 +1,6 @@
 <mat-nav-list>
   <div class="navigation-item" *ngFor="let item of navigation">
-    <a *ngIf="item.route" mat-list-item [routerLink]="item.route"
-       (click)="mobileQuery.matches ? snav.toggle() : ''">
+    <a *ngIf="item.route" mat-list-item [routerLink]="item.route" (click)="linkClicked.emit()">
       <mat-icon matListIcon>{{ item.icon }}</mat-icon>
       {{ item.label }}
     </a>
@@ -13,8 +12,7 @@
             {{ item.label }}
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <a *ngFor="let child of item.children" mat-list-item [routerLink]="child.route"
-           (click)="mobileQuery.matches ? snav.toggle() : ''">
+        <a *ngFor="let child of item.children" mat-list-item [routerLink]="child.route" (click)="linkClicked.emit()">
           <span>{{ child.label }}</span>
         </a>
       </mat-expansion-panel>
