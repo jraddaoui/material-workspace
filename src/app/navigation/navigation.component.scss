@@ -36,7 +36,7 @@
       .mat-expansion-panel-body {
         padding: 0;
 
-        a span {
+        a > div {
           padding-left: 30px;
         }
       }

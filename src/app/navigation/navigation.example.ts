@@ -1,4 +1,6 @@
-export const NAVIGATION = [
+import { NavigationItem, NavigationParent } from './navigation.models';
+
+export const NAVIGATION: Array<NavigationItem | NavigationParent> = [
   {
     label: 'Navigation item 1',
     icon: 'new_releases',
