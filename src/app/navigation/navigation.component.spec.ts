@@ -35,4 +35,18 @@ describe('NavigationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have navigation items', () => {
+    expect(component.navigation.length).toBeGreaterThan(1);
+  });
+
+  it('should have links', () => {
+    expect(fixture.nativeElement.querySelectorAll('a').length).toBeGreaterThan(1);
+  });
+
+  it('should emit linkClicked', () => {
+    spyOn(component.linkClicked, 'emit');
+    fixture.nativeElement.querySelector('a').click();
+    expect(component.linkClicked.emit).toHaveBeenCalled();
+  });
 });
