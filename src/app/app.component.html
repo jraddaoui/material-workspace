@@ -1,18 +1,22 @@
-<mat-sidenav-container fullscreen>
-  <mat-sidenav #snav role="navigation" class="mat-elevation-z6"
-               [mode]="!isDesktop ? 'over' : 'side'"
-               [opened]="isDesktop"
-               fixedInViewport>
-    <img alt="Angular logo" src="assets/logo-black.svg">
-    <app-navigation (linkClicked)="!isDesktop ? snav.close() : ''"></app-navigation>
+<mat-sidenav-container fullscreen class="mat-typography">
+  <mat-sidenav #snav fixedInViewport
+      class="mat-elevation-z6"
+      [attr.role]="isDesktop ? 'navigation' : 'dialog'"
+      [mode]="isDesktop ? 'side' : 'over'"
+      [opened]="isDesktop">
+    <img alt="Angular logo (black)" src="assets/logo-black.svg">
+    <app-navigation (linkClicked)="isDesktop ? '' : snav.close()"></app-navigation>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="mat-elevation-z6">
-      <button mat-icon-button (click)="snav.toggle()" [hidden]="isDesktop" aria-label="menu">
+      <button mat-icon-button
+          aria-label="Toggle sidenav"
+          *ngIf="!isDesktop"
+          (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <img alt="Angular logo" src="assets/logo-white.svg" *ngIf="!isDesktop">
+      <img alt="Angular logo (white)" src="assets/logo-white.svg" *ngIf="!isDesktop">
     </mat-toolbar>
     <div class="content" role="main">
       <router-outlet></router-outlet>

@@ -9,9 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   isDesktop: boolean;
 
-  constructor(
-    private breakpointObserver: BreakpointObserver
-  ) { }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.breakpointObserver.observe('(min-width: 993px)').subscribe(result => {
