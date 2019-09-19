@@ -9,7 +9,7 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="mat-elevation-z6">
-      <button mat-icon-button (click)="snav.toggle()" [hidden]="isDesktop">
+      <button mat-icon-button (click)="snav.toggle()" [hidden]="isDesktop" aria-label="menu">
         <mat-icon>menu</mat-icon>
       </button>
       <img alt="Angular logo" src="assets/logo-white.svg" *ngIf="!isDesktop">
