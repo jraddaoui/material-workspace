@@ -10,14 +10,22 @@ jobs:
       - checkout
       - restore_cache:
           key: material-workspace-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run: npm install
+      - run:
+          name: Install dependencies
+          command: npm install
       - save_cache:
           key: material-workspace-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
-      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-      - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
-      - run: npm run lint
+      - run:
+          name: Execute unit tests
+          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - run:
+          name: Run E2E tests
+          command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+      - run:
+          name: Lint code
+          command: npm run lint
       - codecov/upload:
           file: coverage/material-workspace/lcov.info
           token: ae84bf9b-94fd-4b8f-86e3-b889466139a4
