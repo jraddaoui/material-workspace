@@ -1,4 +1,4 @@
-<mat-sidenav-container fullscreen class="mat-typography">
+<mat-sidenav-container class="mat-typography">
   <mat-sidenav #snav fixedInViewport
       class="mat-elevation-z6"
       [attr.role]="isDesktop ? 'navigation' : 'dialog'"
@@ -8,7 +8,7 @@
     <app-navigation (linkClicked)="isDesktop ? '' : snav.close()"></app-navigation>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content fxLayout="column">
     <mat-toolbar color="primary" class="mat-elevation-z6">
       <button mat-icon-button
           aria-label="Toggle sidenav"
@@ -18,7 +18,7 @@
       </button>
       <img alt="Angular logo (white)" src="assets/logo-white.svg" *ngIf="!isDesktop">
     </mat-toolbar>
-    <div class="content" role="main">
+    <div class="content" role="main" fxFlex fxLayout="column">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

@@ -1,20 +1,24 @@
-mat-sidenav img {
-  width: 120px;
-  display: block;
-  margin: 0 auto;
-}
+mat-sidenav-container {
+  height: 100%;
 
-mat-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-
-  img {
-    height: 30px;
-    margin-left: 10px;
+  mat-sidenav img {
+    max-height: 120px;
+    display: block;
+    margin: 0 auto;
   }
-}
 
-.content {
-  padding: 20px;
+  mat-toolbar {
+    position: fixed;
+    height: 50px;
+
+    img {
+      max-height: 30px;
+      margin-left: 10px;
+    }
+  }
+
+  .content {
+    margin-top: 50px;
+    padding: 20px;
+  }
 }
