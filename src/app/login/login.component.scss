@@ -1,0 +1,19 @@
+:host {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card {
+  min-width: 300px;
+
+  img {
+    max-height: 120px;
+    padding-bottom: 10px;
+  }
+
+  button {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" aria-label="Login form">
+  <mat-card fxLayout="column" fxLayoutGap="10px" class="mat-elevation-z6">
+    <img alt="Angular logo (black)" src="assets/logo-black.svg">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" required>
+      <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+        Enter an email
+      </mat-error>
+      <mat-error *ngIf="loginForm.controls['email'].hasError('email')">
+        Enter a valid email
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="password" required>
+      <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+        Enter a password
+      </mat-error>
+    </mat-form-field>
+    <mat-checkbox formControlName="remember" color="primary">
+      Remember me
+    </mat-checkbox>
+    <button mat-raised-button
+        type="submit"
+        fxFlexAlign="end"
+        color="primary"
+        [disabled]="!loginForm.valid">
+      Login
+    </button>
+  </mat-card>
+</form>
+

@@ -1,6 +1,6 @@
 <mat-sidenav-container class="mat-typography">
   <mat-sidenav #snav fixedInViewport
-      class="mat-elevation-z6"
+      class="mat-elevation-z2"
       [attr.role]="isDesktop ? 'navigation' : 'dialog'"
       [mode]="isDesktop ? 'side' : 'over'"
       [opened]="isDesktop">
@@ -9,7 +9,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content fxLayout="column">
-    <mat-toolbar color="primary" class="mat-elevation-z6">
+    <mat-toolbar color="primary" class="mat-elevation-z2">
       <button mat-icon-button
           aria-label="Toggle sidenav"
           *ngIf="!isDesktop"
