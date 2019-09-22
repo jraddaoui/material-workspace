@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" aria-label="Login form">
+<form [formGroup]="loginForm" aria-label="Login form" (ngSubmit)="login()">
   <mat-card fxLayout="column" fxLayoutGap="10px" class="mat-elevation-z6">
     <img alt="Angular logo (black)" src="assets/logo-black.svg">
     <mat-form-field appearance="outline">
@@ -24,8 +24,7 @@
     <button mat-raised-button
         type="submit"
         fxFlexAlign="end"
-        color="primary"
-        [disabled]="!loginForm.valid">
+        color="primary">
       Login
     </button>
   </mat-card>

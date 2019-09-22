@@ -1,22 +1,27 @@
 <mat-sidenav-container class="mat-typography">
-  <mat-sidenav #snav fixedInViewport
+  <mat-sidenav #sidenav fixedInViewport
       class="mat-elevation-z2"
       [attr.role]="isDesktop ? 'navigation' : 'dialog'"
       [mode]="isDesktop ? 'side' : 'over'"
-      [opened]="isDesktop">
+      [opened]="isDesktop"
+      *ngIf="userLoggedIn">
     <img alt="Angular logo (black)" src="assets/logo-black.svg">
-    <app-navigation (linkClicked)="isDesktop ? '' : snav.close()"></app-navigation>
+    <app-navigation (linkClicked)="isDesktop ? '' : sidenav.close()"></app-navigation>
   </mat-sidenav>
 
   <mat-sidenav-content fxLayout="column">
-    <mat-toolbar color="primary" class="mat-elevation-z2">
+    <mat-toolbar color="primary" class="mat-elevation-z2" fxFlex="0 0 auto" *ngIf="userLoggedIn">
       <button mat-icon-button
           aria-label="Toggle sidenav"
           *ngIf="!isDesktop"
-          (click)="snav.toggle()">
+          (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <img alt="Angular logo (white)" src="assets/logo-white.svg" *ngIf="!isDesktop">
+      <span fxFlex></span>
+      <button mat-icon-button aria-label="Logout" (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
     </mat-toolbar>
     <div class="content" role="main" fxFlex fxLayout="column">
       <router-outlet></router-outlet>
